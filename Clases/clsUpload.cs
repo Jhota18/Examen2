@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Examen2.Clases
@@ -115,12 +119,13 @@ namespace Examen2.Clases
         {
             switch (Proceso.ToUpper())
             {
-                case "PRODUCTO":
-                    clsProducto producto = new clsProducto();
-                    return producto.GrabarImagenProducto(Convert.ToInt32(Datos), Archivos);
+                case "PRENDA":
+                    clsPrenda prenda = new clsPrenda();
+                    return prenda.GrabarImagenPrenda(Convert.ToInt32(Datos), Archivos);
                 default:
                     return "No se ha definido el proceso en la base de datos";
             }
         }
     }
+
 }

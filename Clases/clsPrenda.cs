@@ -84,5 +84,45 @@ namespace Examen2.Clases
             }
 
         }
+        public string GrabarImagenPrenda(int idPrenda, List<string> Fotos)
+        {
+            try
+            {
+                foreach (string foto in Fotos)
+                {
+                    FotoPrenda fotoPrenda = new FotoPrenda();
+                    fotoPrenda.idPrenda = idPrenda;
+                    fotoPrenda.FotoPrenda1 = foto;
+                    dbExamen.FotoPrendas.Add(fotoPrenda);
+                    dbExamen.SaveChanges();
+                }
+                return "Se grabó la información en la base de datos";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
+        }
+        public IQueryable ListarFotoPrenda(int idPrenda)
+        {
+            return from C in dbExamen.Set<Cliente>()
+                   join P in dbExamen.Set<Prenda>()
+                   on C.Documento equals P.Cliente
+                   join FP in dbExamen.Set<FotoPrenda>()
+                   on P.IdPrenda equals FP.idPrenda
+                   where FP.idPrenda == idPrenda
+                   orderby FP.idPrenda
+                   select new
+                   {
+                       Documento = C.Documento,
+                       Nombre = C.Nombre,
+                       Celular = C.Celular,
+                       Email = C.Email,
+                       TipoPrenda = P.TipoPrenda,
+                       Descripcion = P.Descripcion,
+                       Valor = P.Valor,
+                       FotoPrenda = FP.FotoPrenda1
+                   };
+        }
     }
 }
