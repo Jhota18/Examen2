@@ -33,7 +33,7 @@ namespace Examen2.Clases
 
         }
 
-        public List<Prenda> ConsultarTodos()
+        public List<Prenda> ConsultarTodas()
         {
             return dbExamen.Prendas.OrderBy(p => p.IdPrenda).ToList();
 
