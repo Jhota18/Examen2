@@ -84,15 +84,15 @@ namespace Examen2.Clases
             }
 
         }
-        public string GrabarImagenPrenda(int idPrenda, List<string> Fotos)
+        public string GrabarImagenPrenda(int idPrenda, List<string> Archivos)
         {
             try
             {
-                foreach (string foto in Fotos)
+                foreach (string archivo in Archivos)
                 {
                     FotoPrenda fotoPrenda = new FotoPrenda();
                     fotoPrenda.idPrenda = idPrenda;
-                    fotoPrenda.FotoPrenda1 = foto;
+                    fotoPrenda.FotoPrenda1 = archivo;
                     dbExamen.FotoPrendas.Add(fotoPrenda);
                     dbExamen.SaveChanges();
                 }

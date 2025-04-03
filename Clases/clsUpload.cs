@@ -119,7 +119,7 @@ namespace Examen2.Clases
         {
             switch (Proceso.ToUpper())
             {
-                case "PRENDA":
+                case "TIPOPRENDA":
                     clsPrenda prenda = new clsPrenda();
                     return prenda.GrabarImagenPrenda(Convert.ToInt32(Datos), Archivos);
                 default:
