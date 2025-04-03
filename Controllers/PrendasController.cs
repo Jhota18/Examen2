@@ -12,6 +12,16 @@ namespace Examen2.Controllers
     [RoutePrefix("api/Prendas")]
     public class PrendasController : ApiController
     {
+
+        [HttpGet]
+        [Route("ConsultarFotos")]
+        public IQueryable ConsultarFotos(int idPrenda)
+        {
+            clsPrenda Prenda = new clsPrenda();
+            return Prenda.ListarFotoPrenda(idPrenda);
+        }
+
+
         [HttpGet]
         [Route("ConsultarTodos")]
         public List<Prenda> ConsultarTodas()
