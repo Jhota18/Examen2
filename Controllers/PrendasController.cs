@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace Examen2.Controllers
 {
     [RoutePrefix("api/Prendas")]
-    public class PrendaController : ApiController
+    public class PrendasController : ApiController
     {
         [HttpGet]
         [Route("ConsultarTodos")]
